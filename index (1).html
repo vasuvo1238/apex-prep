@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Prep | Investment Banking Interview Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--midnight:#0a0f1c;--navy:#131b2e;--slate:#1e2a45;--steel:#3d4f6f;--silver:#8a9ab8;--ivory:#f4f6fa;--gold:#d4a853;--gold-light:#e8c779;--gold-dark:#b8923a;--emerald:#2dd4a8;--coral:#ff6b6b}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'DM Sans',sans-serif;background:var(--midnight);color:var(--ivory);line-height:1.6;overflow-x:hidden}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(10,15,28,0.95) 0%,rgba(10,15,28,0) 100%);backdrop-filter:blur(10px)}
+        .logo{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:var(--ivory);text-decoration:none;display:flex;align-items:center;gap:0.5rem}
+        .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:var(--silver);text-decoration:none;font-weight:500;font-size:0.9rem;transition:color 0.3s}
+        .nav-links a:hover{color:var(--gold)}
+        .nav-cta{display:flex;gap:1rem}
+        .btn-ghost{padding:0.75rem 1.5rem;background:transparent;border:1px solid var(--steel);color:var(--ivory);font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all 0.3s}
+        .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+        .btn-primary{padding:0.75rem 1.5rem;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);border:none;color:var(--midnight);font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;transition:all 0.3s}
+        .btn-primary:hover{transform:translateY(-2px)}
+        .btn-large{padding:1rem 2.5rem;font-size:1rem}
+        .hero{min-height:100vh;display:flex;align-items:center;padding:8rem 4rem 4rem;position:relative}
+        .hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(212,168,83,0.15) 0%,transparent 50%),linear-gradient(180deg,var(--midnight) 0%,var(--navy) 100%)}
+        .hero-content{position:relative;z-index:10;max-width:800px}
+        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:rgba(212,168,83,0.1);border:1px solid rgba(212,168,83,0.3);color:var(--gold);font-size:0.85rem;margin-bottom:2rem}
+        .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem}
+        .hero h1 span{background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 50%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero-description{font-size:1.25rem;color:var(--silver);max-width:600px;margin-bottom:2.5rem}
+        .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+        .hero-stats{display:flex;gap:4rem;margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(61,79,111,0.3)}
+        .stat-number{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:600}
+        .stat-label{font-size:0.9rem;color:var(--silver)}
+        .section{padding:6rem 4rem}
+        .section-header{text-align:center;max-width:700px;margin:0 auto 4rem}
+        .section-label{font-size:0.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1rem}
+        .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:1rem}
+        .section-description{color:var(--silver);font-size:1.1rem}
+        .guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;max-width:1400px;margin:0 auto}
+        .guide-card{background:linear-gradient(145deg,var(--navy) 0%,rgba(19,27,46,0.5) 100%);border:1px solid rgba(61,79,111,0.2);padding:2rem;transition:all 0.4s}
+        .guide-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+        .guide-icon{width:56px;height:56px;background:rgba(212,168,83,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.5rem;border-radius:8px}
+        .guide-title{font-size:1.2rem;font-weight:600;margin-bottom:0.75rem}
+        .guide-description{color:var(--silver);font-size:0.95rem;margin-bottom:1.5rem}
+        .guide-topics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+        .guide-topic{padding:0.3rem 0.6rem;background:rgba(61,79,111,0.3);font-size:0.75rem;color:var(--silver);border-radius:4px}
+        .guide-cta{color:var(--gold);font-weight:500;font-size:0.9rem;cursor:pointer}
+        .cheatsheet-container{max-width:1000px;margin:3rem auto 0}
+        .cheatsheet-item{background:var(--navy);border:1px solid rgba(61,79,111,0.2);margin-bottom:1rem;overflow:hidden}
+        .cheatsheet-header{padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+        .cheatsheet-header:hover{background:rgba(61,79,111,0.1)}
+        .cheatsheet-title{font-weight:600;display:flex;align-items:center;gap:0.75rem}
+        .cheatsheet-toggle{color:var(--gold);font-size:1.25rem;transition:transform 0.3s}
+        .cheatsheet-item.active .cheatsheet-toggle{transform:rotate(45deg)}
+        .cheatsheet-content{max-height:0;overflow:hidden;transition:max-height 0.4s}
+        .cheatsheet-item.active .cheatsheet-content{max-height:2000px}
+        .cheatsheet-body{padding:0 1.5rem 1.5rem}
+        .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+        .formula-card{background:var(--midnight);padding:1rem;border-left:3px solid var(--gold)}
+        .formula-name{font-weight:600;font-size:0.9rem;margin-bottom:0.5rem}
+        .formula-equation{font-family:monospace;background:rgba(212,168,83,0.1);padding:0.4rem 0.6rem;color:var(--gold);font-size:0.8rem;display:inline-block;margin-bottom:0.5rem}
+        .formula-note{font-size:0.8rem;color:var(--silver)}
+        .modeling-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1400px;margin:0 auto}
+        .modeling-card{background:var(--navy);border:1px solid rgba(61,79,111,0.2);overflow:hidden;transition:all 0.4s}
+        .modeling-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+        .modeling-thumbnail{height:160px;background:linear-gradient(135deg,var(--slate),var(--midnight));display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+        .modeling-content{padding:1.5rem}
+        .modeling-level{display:inline-block;padding:0.2rem 0.6rem;font-size:0.7rem;font-weight:500;margin-bottom:0.75rem;background:rgba(45,212,168,0.15);color:var(--emerald)}
+        .modeling-level.intermediate{background:rgba(212,168,83,0.15);color:var(--gold)}
+        .modeling-level.advanced{background:rgba(255,107,107,0.15);color:var(--coral)}
+        .modeling-title{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
+        .modeling-description{color:var(--silver);font-size:0.9rem;margin-bottom:1rem}
+        .modeling-meta{display:flex;justify-content:space-between;padding-top:1rem;border-top:1px solid rgba(61,79,111,0.2);font-size:0.85rem;color:var(--silver)}
+        .banks-section{background:var(--navy)}
+        .banks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;max-width:1400px;margin:0 auto}
+        .bank-card{background:var(--midnight);border:1px solid rgba(61,79,111,0.2);overflow:hidden;transition:all 0.4s}
+        .bank-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+        .bank-header{padding:1.5rem;background:linear-gradient(135deg,var(--slate),var(--navy));border-bottom:1px solid rgba(61,79,111,0.2)}
+        .bank-logo{font-size:2rem;margin-bottom:0.5rem}
+        .bank-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600}
+        .bank-type{color:var(--gold);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em}
+        .bank-body{padding:1.5rem}
+        .bank-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem}
+        .bank-stat{text-align:center;padding:0.75rem;background:rgba(61,79,111,0.1)}
+        .bank-stat-value{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--gold)}
+        .bank-stat-label{font-size:0.75rem;color:var(--silver)}
+        .bank-culture{margin-bottom:1.5rem}
+        .bank-culture-title{font-weight:600;font-size:0.85rem;margin-bottom:0.5rem}
+        .bank-culture-text{color:var(--silver);font-size:0.85rem;line-height:1.6}
+        .bank-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+        .bank-tag{padding:0.3rem 0.6rem;background:rgba(45,212,168,0.1);color:var(--emerald);font-size:0.7rem;border-radius:4px}
+        .salary-tabs{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap}
+        .salary-tab{padding:0.75rem 1.5rem;background:transparent;border:1px solid var(--steel);color:var(--silver);font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all 0.3s}
+        .salary-tab:hover{border-color:var(--gold);color:var(--gold)}
+        .salary-tab.active{background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-color:var(--gold);color:var(--midnight)}
+        .salary-table-container{max-width:1100px;margin:0 auto;overflow-x:auto}
+        .salary-table{width:100%;border-collapse:collapse;min-width:700px}
+        .salary-table th{background:var(--slate);padding:1rem 1.25rem;text-align:left;font-weight:600;font-size:0.85rem;border-bottom:2px solid var(--gold)}
+        .salary-table td{padding:1rem 1.25rem;border-bottom:1px solid rgba(61,79,111,0.2);color:var(--silver);font-size:0.9rem}
+        .salary-table tr:hover td{background:rgba(61,79,111,0.1)}
+        .salary-table .role{font-weight:600;color:var(--ivory)}
+        .salary-table .total{color:var(--gold);font-weight:600}
+        .salary-note{text-align:center;margin-top:2rem;color:var(--silver);font-size:0.85rem}
+        .practice-section{background:var(--navy)}
+        .practice-tabs{display:flex;justify-content:center;gap:0.5rem;margin-bottom:3rem;flex-wrap:wrap}
+        .practice-tab{padding:0.75rem 1.5rem;background:transparent;border:1px solid var(--steel);color:var(--silver);font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all 0.3s}
+        .practice-tab:hover{border-color:var(--gold);color:var(--gold)}
+        .practice-tab.active{background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-color:var(--gold);color:var(--midnight)}
+        .questions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto}
+        .question-card{background:var(--midnight);border:1px solid rgba(61,79,111,0.2);padding:1.5rem;cursor:pointer;transition:all 0.3s}
+        .question-card:hover{border-color:var(--gold);transform:translateX(5px)}
+        .question-header{display:flex;justify-content:space-between;margin-bottom:0.75rem}
+        .question-type{font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em}
+        .difficulty{padding:0.2rem 0.5rem;font-size:0.65rem;border-radius:3px;background:rgba(45,212,168,0.15);color:var(--emerald)}
+        .difficulty.intermediate{background:rgba(212,168,83,0.15);color:var(--gold)}
+        .difficulty.advanced,.difficulty.brainteaser{background:rgba(255,107,107,0.15);color:var(--coral)}
+        .question-text{font-weight:500;font-size:1rem;margin-bottom:1rem}
+        .question-footer{display:flex;justify-content:space-between;padding-top:1rem;border-top:1px solid rgba(61,79,111,0.2);font-size:0.85rem}
+        .question-meta{color:var(--silver)}
+        .question-action{color:var(--gold);font-weight:500}
+        .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+        .pricing-card{background:var(--navy);border:1px solid rgba(61,79,111,0.3);padding:2.5rem 2rem;transition:all 0.4s}
+        .pricing-card.featured{background:linear-gradient(145deg,var(--slate),var(--navy));border-color:var(--gold);transform:scale(1.05);position:relative}
+        .pricing-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:0.5rem 1rem;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--midnight);font-size:0.7rem;font-weight:600;text-transform:uppercase}
+        .pricing-card:hover{transform:translateY(-5px)}
+        .pricing-card.featured:hover{transform:scale(1.05) translateY(-5px)}
+        .pricing-name{font-size:1.2rem;font-weight:600;margin-bottom:0.5rem}
+        .pricing-tagline{color:var(--silver);font-size:0.9rem;margin-bottom:1.5rem}
+        .pricing-amount{display:flex;align-items:baseline;gap:0.25rem;margin-bottom:0.5rem}
+        .pricing-currency{font-size:1.25rem;color:var(--silver)}
+        .pricing-value{font-family:'Playfair Display',serif;font-size:3rem;font-weight:600}
+        .pricing-period{color:var(--silver);font-size:0.9rem}
+        .pricing-billing{color:var(--silver);font-size:0.8rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(61,79,111,0.3)}
+        .pricing-features{list-style:none;margin-bottom:1.5rem}
+        .pricing-features li{display:flex;align-items:flex-start;gap:0.5rem;padding:0.5rem 0;font-size:0.9rem;color:var(--silver)}
+        .pricing-features li::before{content:'✓';color:var(--emerald);font-weight:600}
+        .pricing-btn{width:100%;padding:1rem;text-align:center}
+        .cta-section{text-align:center;padding:6rem 4rem;background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(212,168,83,0.15) 0%,transparent 50%),var(--midnight)}
+        .cta-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:600;margin-bottom:1rem}
+        .cta-description{color:var(--silver);font-size:1.1rem;max-width:500px;margin:0 auto 2rem}
+        footer{background:var(--navy);padding:4rem;border-top:1px solid rgba(61,79,111,0.2)}
+        .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:3rem}
+        .footer-brand{max-width:280px}
+        .footer-brand .logo{margin-bottom:1rem}
+        .footer-brand p{color:var(--silver);font-size:0.9rem}
+        .footer-column h4{font-size:0.85rem;font-weight:600;margin-bottom:1rem}
+        .footer-column ul{list-style:none}
+        .footer-column li{margin-bottom:0.5rem}
+        .footer-column a{color:var(--silver);text-decoration:none;font-size:0.85rem}
+        .footer-column a:hover{color:var(--gold)}
+        .footer-bottom{max-width:1200px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(61,79,111,0.2);display:flex;justify-content:space-between;color:var(--silver);font-size:0.8rem}
+        .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,15,28,0.95);z-index:10000;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+        .modal-overlay.active{display:flex}
+        .modal{background:var(--navy);border:1px solid rgba(61,79,111,0.3);width:90%;max-width:700px;max-height:85vh;overflow-y:auto}
+        .modal-header{padding:1.5rem;border-bottom:1px solid rgba(61,79,111,0.2);display:flex;justify-content:space-between}
+        .modal-close{background:none;border:none;color:var(--silver);font-size:1.5rem;cursor:pointer}
+        .modal-body{padding:1.5rem}
+        .answer-label{font-size:0.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem}
+        .answer-content{color:var(--silver);line-height:1.7}
+        .answer-content p{margin-bottom:1rem}
+        .key-point{background:rgba(212,168,83,0.1);border-left:3px solid var(--gold);padding:1rem;margin:1rem 0}
+        .key-point-title{font-weight:600;color:var(--gold);margin-bottom:0.5rem;font-size:0.85rem}
+        @media(max-width:768px){nav{padding:1rem}.nav-links{display:none}.section{padding:3rem 1.5rem}.hero{padding:6rem 1.5rem 3rem}.hero-stats{flex-direction:column;gap:1.5rem}.footer-content{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:0.5rem;text-align:center}.pricing-card.featured{transform:scale(1)}.questions-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo"><div class="logo-icon"></div>Apex Prep</a>
+        <ul class="nav-links">
+            <li><a href="#guides">Study Guides</a></li>
+            <li><a href="#modeling">Modeling</a></li>
+            <li><a href="#banks">Banks</a></li>
+            <li><a href="#salary">Salaries</a></li>
+            <li><a href="#practice">Practice</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+        </ul>
+        <div class="nav-cta">
+            <button class="btn-ghost">Sign In</button>
+            <button class="btn-primary">Start Free</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🎯 Trusted by 15,000+ candidates at top banks</div>
+            <h1>Master Your <span>Investment Banking</span> Interviews</h1>
+            <p class="hero-description">Comprehensive preparation for technical questions, case studies, and behavioral interviews.</p>
+            <div class="hero-cta">
+                <button class="btn-primary btn-large">Start Practicing Free</button>
+                <button class="btn-ghost btn-large">View Questions</button>
+            </div>
+            <div class="hero-stats">
+                <div><span class="stat-number">2,500+</span><div class="stat-label">Interview Questions</div></div>
+                <div><span class="stat-number">89%</span><div class="stat-label">Offer Success Rate</div></div>
+                <div><span class="stat-number">50+</span><div class="stat-label">Elite Bank Partners</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="guides">
+        <div class="section-header">
+            <div class="section-label">Study Guides & Cheat Sheets</div>
+            <h2 class="section-title">Master the Fundamentals</h2>
+            <p class="section-description">Comprehensive guides and quick-reference cheat sheets.</p>
+        </div>
+        <div class="guides-grid">
+            <div class="guide-card"><div class="guide-icon">📊</div><h3 class="guide-title">Accounting Fundamentals</h3><p class="guide-description">Master the three financial statements and how they link together.</p><div class="guide-topics"><span class="guide-topic">Income Statement</span><span class="guide-topic">Balance Sheet</span><span class="guide-topic">Cash Flow</span></div><div class="guide-cta">Read Guide →</div></div>
+            <div class="guide-card"><div class="guide-icon">💰</div><h3 class="guide-title">Valuation Methods</h3><p class="guide-description">Deep dive into DCF, trading comps, and precedent transactions.</p><div class="guide-topics"><span class="guide-topic">DCF</span><span class="guide-topic">Comps</span><span class="guide-topic">Precedents</span></div><div class="guide-cta">Read Guide →</div></div>
+            <div class="guide-card"><div class="guide-icon">🔄</div><h3 class="guide-title">M&A Concepts</h3><p class="guide-description">Understand merger mechanics, accretion/dilution, and synergies.</p><div class="guide-topics"><span class="guide-topic">Accretion/Dilution</span><span class="guide-topic">Synergies</span></div><div class="guide-cta">Read Guide →</div></div>
+            <div class="guide-card"><div class="guide-icon">🏦</div><h3 class="guide-title">LBO Fundamentals</h3><p class="guide-description">Learn leveraged buyout mechanics and what makes a good LBO candidate.</p><div class="guide-topics"><span class="guide-topic">Sources & Uses</span><span class="guide-topic">IRR/MoIC</span></div><div class="guide-cta">Read Guide →</div></div>
+        </div>
+        <div class="cheatsheet-container">
+            <h3 style="text-align:center;margin-bottom:2rem;font-family:'Playfair Display',serif;font-size:1.5rem;">Quick Reference Cheat Sheets</h3>
+            <div class="cheatsheet-item"><div class="cheatsheet-header" onclick="this.parentElement.classList.toggle('active')"><div class="cheatsheet-title">📐 Key Valuation Formulas</div><span class="cheatsheet-toggle">+</span></div><div class="cheatsheet-content"><div class="cheatsheet-body"><div class="formula-grid"><div class="formula-card"><div class="formula-name">Enterprise Value</div><div class="formula-equation">EV = Equity + Debt - Cash</div><div class="formula-note">Add minority interest & preferred</div></div><div class="formula-card"><div class="formula-name">WACC</div><div class="formula-equation">(E/V × Re) + (D/V × Rd × (1-T))</div><div class="formula-note">Re from CAPM</div></div><div class="formula-card"><div class="formula-name">Terminal Value</div><div class="formula-equation">FCF × (1+g) / (WACC - g)</div><div class="formula-note">g typically 2-3%</div></div><div class="formula-card"><div class="formula-name">Unlevered FCF</div><div class="formula-equation">EBIT(1-T) + D&A - CapEx - ΔNWC</div><div class="formula-note">Cash to all investors</div></div></div></div></div></div>
+            <div class="cheatsheet-item"><div class="cheatsheet-header" onclick="this.parentElement.classList.toggle('active')"><div class="cheatsheet-title">🔗 3-Statement Links</div><span class="cheatsheet-toggle">+</span></div><div class="cheatsheet-content"><div class="cheatsheet-body"><div class="formula-grid"><div class="formula-card"><div class="formula-name">Net Income → CFS</div><div class="formula-equation">Starting point of Operating</div><div class="formula-note">From Income Statement</div></div><div class="formula-card"><div class="formula-name">D&A → CFS & BS</div><div class="formula-equation">Add back on CFS, reduces PP&E</div><div class="formula-note">Non-cash expense</div></div><div class="formula-card"><div class="formula-name">CapEx → CFS & BS</div><div class="formula-equation">Outflow on CFS, increases PP&E</div><div class="formula-note">Investing section</div></div><div class="formula-card"><div class="formula-name">Retained Earnings</div><div class="formula-equation">Prior RE + NI - Dividends</div><div class="formula-note">Links IS to BS</div></div></div></div></div></div>
+            <div class="cheatsheet-item"><div class="cheatsheet-header" onclick="this.parentElement.classList.toggle('active')"><div class="cheatsheet-title">⚡ LBO Quick Reference</div><span class="cheatsheet-toggle">+</span></div><div class="cheatsheet-content"><div class="cheatsheet-body"><div class="formula-grid"><div class="formula-card"><div class="formula-name">IRR Rule of Thumb</div><div class="formula-equation">2x in 3 yrs ≈ 26% | 3x in 5 yrs ≈ 25%</div><div class="formula-note">Quick mental math</div></div><div class="formula-card"><div class="formula-name">MoIC</div><div class="formula-equation">Exit Equity / Initial Equity</div><div class="formula-note">Target: 2.0-3.0x</div></div><div class="formula-card"><div class="formula-name">Sources = Uses</div><div class="formula-equation">Debt + Equity = Purchase + Fees</div><div class="formula-note">Must balance</div></div><div class="formula-card"><div class="formula-name">Value Creation</div><div class="formula-equation">Debt Paydown + EBITDA Growth + Multiple Expansion</div><div class="formula-note">3 drivers of returns</div></div></div></div></div></div>
+        </div>
+    </section>
+
+    <section class="section" id="modeling" style="background:var(--navy);">
+        <div class="section-header">
+            <div class="section-label">Financial Modeling</div>
+            <h2 class="section-title">Build Models Like a Pro</h2>
+            <p class="section-description">Step-by-step tutorials from Excel basics to advanced models.</p>
+        </div>
+        <div class="modeling-grid">
+            <div class="modeling-card"><div class="modeling-thumbnail">📑</div><div class="modeling-content"><span class="modeling-level">Beginner</span><h3 class="modeling-title">Excel Fundamentals</h3><p class="modeling-description">Essential Excel functions and shortcuts for Wall Street.</p><div class="modeling-meta"><span>⏱ 3 hours</span><span>12 lessons</span></div></div></div>
+            <div class="modeling-card"><div class="modeling-thumbnail">📊</div><div class="modeling-content"><span class="modeling-level">Beginner</span><h3 class="modeling-title">3-Statement Model</h3><p class="modeling-description">Build an integrated IS, BS, and CF model.</p><div class="modeling-meta"><span>⏱ 6 hours</span><span>18 lessons</span></div></div></div>
+            <div class="modeling-card"><div class="modeling-thumbnail">💵</div><div class="modeling-content"><span class="modeling-level intermediate">Intermediate</span><h3 class="modeling-title">DCF Valuation</h3><p class="modeling-description">Complete DCF with WACC and sensitivity analysis.</p><div class="modeling-meta"><span>⏱ 5 hours</span><span>15 lessons</span></div></div></div>
+            <div class="modeling-card"><div class="modeling-thumbnail">🔄</div><div class="modeling-content"><span class="modeling-level intermediate">Intermediate</span><h3 class="modeling-title">Comparable Analysis</h3><p class="modeling-description">Trading comps and precedent transactions.</p><div class="modeling-meta"><span>⏱ 4 hours</span><span>10 lessons</span></div></div></div>
+            <div class="modeling-card"><div class="modeling-thumbnail">🏦</div><div class="modeling-content"><span class="modeling-level advanced">Advanced</span><h3 class="modeling-title">LBO Model</h3><p class="modeling-description">Full LBO with debt schedules and returns.</p><div class="modeling-meta"><span>⏱ 8 hours</span><span>22 lessons</span></div></div></div>
+            <div class="modeling-card"><div class="modeling-thumbnail">🤝</div><div class="modeling-content"><span class="modeling-level advanced">Advanced</span><h3 class="modeling-title">M&A Model</h3><p class="modeling-description">Accretion/dilution and pro forma financials.</p><div class="modeling-meta"><span>⏱ 7 hours</span><span>20 lessons</span></div></div></div>
+        </div>
+    </section>
+
+    <section class="section banks-section" id="banks">
+        <div class="section-header">
+            <div class="section-label">Bank Profiles</div>
+            <h2 class="section-title">Know Your Target Banks</h2>
+            <p class="section-description">Insider insights on culture and compensation.</p>
+        </div>
+        <div class="banks-grid">
+            <div class="bank-card"><div class="bank-header"><div class="bank-logo">🏛️</div><div class="bank-name">Goldman Sachs</div><div class="bank-type">Bulge Bracket</div></div><div class="bank-body"><div class="bank-stats"><div class="bank-stat"><div class="bank-stat-value">$110K</div><div class="bank-stat-label">Base</div></div><div class="bank-stat"><div class="bank-stat-value">$175K+</div><div class="bank-stat-label">Total Y1</div></div><div class="bank-stat"><div class="bank-stat-value">#1</div><div class="bank-stat-label">M&A</div></div><div class="bank-stat"><div class="bank-stat-value">3.8+</div><div class="bank-stat-label">GPA</div></div></div><div class="bank-culture"><div class="bank-culture-title">Culture</div><p class="bank-culture-text">Highly competitive, prestige-driven. Values intellectual curiosity and leadership.</p></div><div class="bank-tags"><span class="bank-tag">Top Exit Opps</span><span class="bank-tag">Strong M&A</span></div></div></div>
+            <div class="bank-card"><div class="bank-header"><div class="bank-logo">🏦</div><div class="bank-name">JP Morgan</div><div class="bank-type">Bulge Bracket</div></div><div class="bank-body"><div class="bank-stats"><div class="bank-stat"><div class="bank-stat-value">$110K</div><div class="bank-stat-label">Base</div></div><div class="bank-stat"><div class="bank-stat-value">$170K+</div><div class="bank-stat-label">Total Y1</div></div><div class="bank-stat"><div class="bank-stat-value">#2</div><div class="bank-stat-label">M&A</div></div><div class="bank-stat"><div class="bank-stat-value">3.7+</div><div class="bank-stat-label">GPA</div></div></div><div class="bank-culture"><div class="bank-culture-title">Culture</div><p class="bank-culture-text">Structured and process-oriented. Best training program. Values teamwork.</p></div><div class="bank-tags"><span class="bank-tag">Best Training</span><span class="bank-tag">Global</span></div></div></div>
+            <div class="bank-card"><div class="bank-header"><div class="bank-logo">📈</div><div class="bank-name">Morgan Stanley</div><div class="bank-type">Bulge Bracket</div></div><div class="bank-body"><div class="bank-stats"><div class="bank-stat"><div class="bank-stat-value">$110K</div><div class="bank-stat-label">Base</div></div><div class="bank-stat"><div class="bank-stat-value">$165K+</div><div class="bank-stat-label">Total Y1</div></div><div class="bank-stat"><div class="bank-stat-value">#3</div><div class="bank-stat-label">M&A</div></div><div class="bank-stat"><div class="bank-stat-value">3.7+</div><div class="bank-stat-label">GPA</div></div></div><div class="bank-culture"><div class="bank-culture-title">Culture</div><p class="bank-culture-text">Better work-life balance. Strong in TMT. Collaborative culture.</p></div><div class="bank-tags"><span class="bank-tag">Better Lifestyle</span><span class="bank-tag">TMT</span></div></div></div>
+            <div class="bank-card"><div class="bank-header"><div class="bank-logo">⭐</div><div class="bank-name">Evercore</div><div class="bank-type">Elite Boutique</div></div><div class="bank-body"><div class="bank-stats"><div class="bank-stat"><div class="bank-stat-value">$115K</div><div class="bank-stat-label">Base</div></div><div class="bank-stat"><div class="bank-stat-value">$200K+</div><div class="bank-stat-label">Total Y1</div></div><div class="bank-stat"><div class="bank-stat-value">#1</div><div class="bank-stat-label">EB Rank</div></div><div class="bank-stat"><div class="bank-stat-value">3.8+</div><div class="bank-stat-label">GPA</div></div></div><div class="bank-culture"><div class="bank-culture-title">Culture</div><p class="bank-culture-text">Pure advisory. Demanding hours but top compensation.</p></div><div class="bank-tags"><span class="bank-tag">Top Pay</span><span class="bank-tag">Advisory</span></div></div></div>
+            <div class="bank-card"><div class="bank-header"><div class="bank-logo">💎</div><div class="bank-name">Lazard</div><div class="bank-type">Elite Boutique</div></div><div class="bank-body"><div class="bank-stats"><div class="bank-stat"><div class="bank-stat-value">$115K</div><div class="bank-stat-label">Base</div></div><div class="bank-stat"><div class="bank-stat-value">$190K+</div><div class="bank-stat-label">Total Y1</div></div><div class="bank-stat"><div class="bank-stat-value">#1</div><div class="bank-stat-label">RX</div></div><div class="bank-stat"><div class="bank-stat-value">3.7+</div><div class="bank-stat-label">GPA</div></div></div><div class="bank-culture"><div class="bank-culture-title">Culture</div><p class="bank-culture-text">Leading restructuring practice. International and intellectual.</p></div><div class="bank-tags"><span class="bank-tag">Restructuring</span><span class="bank-tag">Global</span></div></div></div>
+            <div class="bank-card"><div class="bank-header"><div class="bank-logo">🏰</div><div class="bank-name">Centerview</div><div class="bank-type">Elite Boutique</div></div><div class="bank-body"><div class="bank-stats"><div class="bank-stat"><div class="bank-stat-value">$115K</div><div class="bank-stat-label">Base</div></div><div class="bank-stat"><div class="bank-stat-value">$210K+</div><div class="bank-stat-label">Total Y1</div></div><div class="bank-stat"><div class="bank-stat-value">Top 3</div><div class="bank-stat-label">Mega</div></div><div class="bank-stat"><div class="bank-stat-value">3.9+</div><div class="bank-stat-label">GPA</div></div></div><div class="bank-culture"><div class="bank-culture-title">Culture</div><p class="bank-culture-text">Most selective. Largest, most complex deals. Top academics required.</p></div><div class="bank-tags"><span class="bank-tag">Most Selective</span><span class="bank-tag">Highest Pay</span></div></div></div>
+        </div>
+    </section>
+
+    <section class="section" id="salary">
+        <div class="section-header">
+            <div class="section-label">Compensation Data</div>
+            <h2 class="section-title">Investment Banking Salaries</h2>
+            <p class="section-description">2024-2025 compensation data across firm types.</p>
+        </div>
+        <div class="salary-tabs">
+            <button class="salary-tab active" data-type="bb">Bulge Bracket</button>
+            <button class="salary-tab" data-type="eb">Elite Boutique</button>
+            <button class="salary-tab" data-type="mm">Middle Market</button>
+            <button class="salary-tab" data-type="pe">Private Equity</button>
+        </div>
+        <div class="salary-table-container">
+            <table class="salary-table"><thead><tr><th>Position</th><th>Years</th><th>Base</th><th>Bonus</th><th>Total</th></tr></thead><tbody id="salaryBody"></tbody></table>
+        </div>
+        <p class="salary-note">* NYC averages for 2024-2025. Varies by bank, group, and performance.</p>
+    </section>
+
+    <section class="section practice-section" id="practice">
+        <div class="section-header">
+            <div class="section-label">Question Bank</div>
+            <h2 class="section-title">Practice Real Interview Questions</h2>
+            <p class="section-description">Sourced from actual interviews at top banks.</p>
+        </div>
+        <div class="practice-tabs">
+            <button class="practice-tab active" data-category="technical">Technical</button>
+            <button class="practice-tab" data-category="behavioral">Behavioral</button>
+            <button class="practice-tab" data-category="manda">M&A</button>
+            <button class="practice-tab" data-category="lbo">LBO</button>
+            <button class="practice-tab" data-category="valuation">Valuation</button>
+            <button class="practice-tab" data-category="brain">Brainteasers</button>
+        </div>
+        <div class="questions-grid" id="questionsGrid"></div>
+    </section>
+
+    <section class="section" id="pricing">
+        <div class="section-header">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Invest in Your Future</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card"><div class="pricing-name">Starter</div><p class="pricing-tagline">For early exploration</p><div class="pricing-amount"><span class="pricing-currency">$</span><span class="pricing-value">0</span></div><p class="pricing-billing">Free forever</p><ul class="pricing-features"><li>50 practice questions</li><li>Basic guides</li><li>Community access</li></ul><button class="btn-ghost pricing-btn">Get Started</button></div>
+            <div class="pricing-card featured"><div class="pricing-name">Premium</div><p class="pricing-tagline">For serious candidates</p><div class="pricing-amount"><span class="pricing-currency">$</span><span class="pricing-value">49</span><span class="pricing-period">/mo</span></div><p class="pricing-billing">Cancel anytime</p><ul class="pricing-features"><li>2,500+ questions</li><li>AI mock interviews</li><li>Full modeling courses</li><li>Bank-specific prep</li><li>Video explanations</li></ul><button class="btn-primary pricing-btn">Start Free Trial</button></div>
+            <div class="pricing-card"><div class="pricing-name">Enterprise</div><p class="pricing-tagline">For clubs & universities</p><div class="pricing-amount"><span class="pricing-currency">$</span><span class="pricing-value">299</span><span class="pricing-period">/mo</span></div><p class="pricing-billing">Billed annually</p><ul class="pricing-features"><li>Everything in Premium</li><li>Unlimited members</li><li>Custom questions</li><li>Analytics dashboard</li></ul><button class="btn-ghost pricing-btn">Contact Sales</button></div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="cta-title">Ready to Land Your Dream Offer?</h2>
+        <p class="cta-description">Join thousands who've used Apex Prep to break into investment banking.</p>
+        <button class="btn-primary btn-large">Start Your Free Trial</button>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand"><a href="#" class="logo"><div class="logo-icon"></div>Apex Prep</a><p>The most comprehensive IB interview prep platform.</p></div>
+            <div class="footer-column"><h4>Product</h4><ul><li><a href="#guides">Study Guides</a></li><li><a href="#modeling">Modeling</a></li><li><a href="#practice">Questions</a></li></ul></div>
+            <div class="footer-column"><h4>Resources</h4><ul><li><a href="#">Blog</a></li><li><a href="#salary">Salaries</a></li><li><a href="#banks">Banks</a></li></ul></div>
+            <div class="footer-column"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2025 Apex Prep</p><p>Made in NYC</p></div>
+    </footer>
+
+    <div class="modal-overlay" id="questionModal">
+        <div class="modal">
+            <div class="modal-header"><div><div class="question-type" id="modalCategory">TECHNICAL</div><h3 id="modalQuestion" style="font-size:1.1rem;font-weight:600;margin-top:0.5rem;"></h3></div><button class="modal-close" onclick="closeModal()">×</button></div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+<script>
+const salaryData={bb:[{role:'Analyst 1',years:'0-1',base:'$110K',bonus:'$50-80K',total:'$160-190K'},{role:'Analyst 2',years:'1-2',base:'$125K',bonus:'$80-110K',total:'$205-235K'},{role:'Analyst 3',years:'2-3',base:'$135K',bonus:'$100-130K',total:'$235-265K'},{role:'Associate 1',years:'3-4',base:'$175K',bonus:'$100-150K',total:'$275-325K'},{role:'VP',years:'6-9',base:'$275K',bonus:'$200-400K',total:'$475-675K'},{role:'Director',years:'9-12',base:'$325K',bonus:'$300-600K',total:'$625-925K'},{role:'MD',years:'12+',base:'$400K',bonus:'$500K-2M+',total:'$900K-2.4M+'}],eb:[{role:'Analyst 1',years:'0-1',base:'$115K',bonus:'$80-120K',total:'$195-235K'},{role:'Analyst 2',years:'1-2',base:'$130K',bonus:'$100-140K',total:'$230-270K'},{role:'Associate',years:'3-4',base:'$200K',bonus:'$125-200K',total:'$325-400K'},{role:'VP',years:'5-8',base:'$300K',bonus:'$250-500K',total:'$550-800K'},{role:'MD',years:'11+',base:'$500K',bonus:'$700K-3M+',total:'$1.2-3.5M+'}],mm:[{role:'Analyst 1',years:'0-1',base:'$95K',bonus:'$30-50K',total:'$125-145K'},{role:'Analyst 2',years:'1-2',base:'$105K',bonus:'$50-75K',total:'$155-180K'},{role:'Associate',years:'3-4',base:'$150K',bonus:'$75-125K',total:'$225-275K'},{role:'VP',years:'5-8',base:'$225K',bonus:'$125-250K',total:'$350-475K'},{role:'MD',years:'11+',base:'$350K',bonus:'$300K-1M+',total:'$650K-1.35M+'}],pe:[{role:'Associate 1',years:'0-2',base:'$175K',bonus:'$125-200K',total:'$300-375K'},{role:'Senior Associate',years:'3-5',base:'$250K',bonus:'$200-400K',total:'$450-650K'},{role:'VP',years:'5-7',base:'$325K',bonus:'$300-600K',total:'$625-925K'},{role:'Principal',years:'7-10',base:'$400K',bonus:'$400K-1M',total:'$800K-1.4M'},{role:'Partner',years:'10+',base:'$500K+',bonus:'$1-10M+',total:'$1.5-10.5M+'}]};
+function renderSalary(t){document.getElementById('salaryBody').innerHTML=salaryData[t].map(r=>`<tr><td class="role">${r.role}</td><td>${r.years}</td><td>${r.base}</td><td>${r.bonus}</td><td class="total">${r.total}</td></tr>`).join('')}
+document.querySelectorAll('.salary-tab').forEach(tab=>{tab.addEventListener('click',function(){document.querySelectorAll('.salary-tab').forEach(t=>t.classList.remove('active'));this.classList.add('active');renderSalary(this.dataset.type)})});
+renderSalary('bb');
+const questions={technical:[{question:"Walk me through a DCF analysis.",bank:"Goldman Sachs",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">5 Key Steps</div><p>Project FCF → Terminal Value → WACC → Discount → Sum for EV</p></div><p><strong>1.</strong> Project Free Cash Flows (5-10 years)</p><p><strong>2.</strong> Calculate Terminal Value (Gordon Growth or Exit Multiple)</p><p><strong>3.</strong> Calculate WACC = (E/V × Re) + (D/V × Rd × (1-T))</p><p><strong>4.</strong> Discount all cash flows to present value</p><p><strong>5.</strong> Sum for Enterprise Value, subtract net debt for Equity Value</p></div>`},{question:"Enterprise Value vs Equity Value?",bank:"Morgan Stanley",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Key Distinction</div><p>EV = value to ALL investors (debt + equity)<br>Equity Value = value to SHAREHOLDERS only</p></div><p><strong>Formula:</strong> EV = Equity + Debt + Preferred + MI - Cash</p></div>`},{question:"How do the 3 statements link?",bank:"JP Morgan",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Links</div><p>Net Income → CFS start<br>D&A adds back, reduces PP&E<br>CapEx on CFS, increases PP&E<br>Ending Cash = BS Cash</p></div></div>`},{question:"If D&A increases by $10, walk through all statements.",bank:"Evercore",difficulty:"Intermediate",answer:`<div class="answer-label">Framework</div><div class="answer-content"><p><strong>IS:</strong> Pre-tax income down $10. At 25% tax, NI down $7.50</p><p><strong>CFS:</strong> NI down $7.50, D&A adds $10 = Net cash up $2.50</p><p><strong>BS:</strong> Cash up $2.50, PP&E down $10. RE down $7.50. Balanced!</p></div>`}],behavioral:[{question:"Walk me through your resume.",bank:"All Banks",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">3-Part Structure</div><p>Past → Present → Future (why IB, why this bank)</p></div><p>Keep to 2 minutes. Control the narrative.</p></div>`},{question:"Why investment banking?",bank:"All Banks",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Strong Pillars</div><p>Transaction exposure • Learning curve • Senior access • Meaningful deals • Team culture</p></div></div>`}],manda:[{question:"Walk me through accretion/dilution.",bank:"Lazard",difficulty:"Intermediate",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Core Concept</div><p>Pro Forma EPS > Standalone = Accretive<br>Pro Forma EPS < Standalone = Dilutive</p></div></div>`},{question:"Main synergies in a merger?",bank:"Morgan Stanley",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Two Types</div><p>Cost (reliable): headcount, facilities<br>Revenue (harder): cross-sell, pricing</p></div></div>`}],lbo:[{question:"Walk me through an LBO.",bank:"Blackstone",difficulty:"Intermediate",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Value Creation</div><p>Debt paydown + EBITDA growth + Multiple expansion</p></div><p>Target: 20-25% IRR, 2.0-3.0x MoIC</p></div>`},{question:"Good LBO candidate?",bank:"KKR",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Key Traits</div><p>Stable cash flows • Low CapEx • Strong position • Improvement potential • Clear exit</p></div></div>`}],valuation:[{question:"Main valuation methods?",bank:"All Banks",difficulty:"Fundamental",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">3 Core Methods</div><p>1. Trading Comps<br>2. Precedent Transactions<br>3. DCF Analysis</p></div></div>`},{question:"EV/Revenue vs EV/EBITDA?",bank:"Jefferies",difficulty:"Intermediate",answer:`<div class="answer-label">Framework</div><div class="answer-content"><p><strong>EV/Revenue:</strong> Unprofitable, high-growth, variable margins</p><p><strong>EV/EBITDA:</strong> Mature, profitable, similar margins</p></div>`}],brain:[{question:"How many golf balls in a school bus?",bank:"Jane Street",difficulty:"Brainteaser",answer:`<div class="answer-label">Framework</div><div class="answer-content"><div class="key-point"><div class="key-point-title">Approach</div><p>Estimate volumes → Ratio → Packing efficiency</p></div><p>Bus ~1,350 cu ft. Golf ball ~2.5 cu in. With 65% packing: ~500K-600K balls</p></div>`}]};
+function renderQuestions(cat){document.getElementById('questionsGrid').innerHTML=(questions[cat]||[]).map((q,i)=>`<div class="question-card" onclick="openModal('${cat}',${i})"><div class="question-header"><div class="question-type">${cat.toUpperCase()}</div><span class="difficulty ${q.difficulty.toLowerCase()}">${q.difficulty}</span></div><div class="question-text">${q.question}</div><div class="question-footer"><span class="question-meta">${q.bank}</span><span class="question-action">View →</span></div></div>`).join('')}
+document.querySelectorAll('.practice-tab').forEach(tab=>{tab.addEventListener('click',function(){document.querySelectorAll('.practice-tab').forEach(t=>t.classList.remove('active'));this.classList.add('active');renderQuestions(this.dataset.category)})});
+function openModal(cat,i){const q=questions[cat][i];document.getElementById('modalCategory').textContent=cat.toUpperCase();document.getElementById('modalQuestion').textContent=q.question;document.getElementById('modalBody').innerHTML=q.answer;document.getElementById('questionModal').classList.add('active');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('questionModal').classList.remove('active');document.body.style.overflow='auto'}
+document.getElementById('questionModal').addEventListener('click',e=>{if(e.target.id==='questionModal')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+renderQuestions('technical');
+</script>
+</body>
+</html>
