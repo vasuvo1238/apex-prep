@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Prep | Investment Banking Interview Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #0a0f1c;
+            --navy: #131b2e;
+            --slate: #1e2a45;
+            --steel: #3d4f6f;
+            --silver: #8a9ab8;
+            --ivory: #f4f6fa;
+            --gold: #d4a853;
+            --gold-light: #e8c779;
+            --gold-dark: #b8923a;
+            --emerald: #2dd4a8;
+            --coral: #ff6b6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--midnight);
+            color: var(--ivory);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            z-index: 9999;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(10, 15, 28, 0.95) 0%, rgba(10, 15, 28, 0) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--ivory);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ivory);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-ghost {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--steel);
+            color: var(--ivory);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border: none;
+            color: var(--midnight);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 168, 83, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 168, 83, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 168, 83, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(45, 212, 168, 0.08) 0%, transparent 40%),
+                linear-gradient(180deg, var(--midnight) 0%, var(--navy) 100%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(61, 79, 111, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(61, 79, 111, 0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeSlideUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeSlideUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--silver);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            animation: fadeSlideUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeSlideUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(61, 79, 111, 0.3);
+            animation: fadeSlideUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--ivory);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--silver);
+            margin-top: 0.25rem;
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: 4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: linear-gradient(145deg, rgba(30, 42, 69, 0.8) 0%, rgba(19, 27, 46, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(61, 79, 111, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .card-1 {
+            top: 10%;
+            right: 0;
+            width: 280px;
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            top: 45%;
+            right: 15%;
+            width: 260px;
+            animation-delay: -2s;
+        }
+
+        .card-3 {
+            bottom: 5%;
+            right: 5%;
+            width: 240px;
+            animation-delay: -4s;
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--silver);
+        }
+
+        .difficulty {
+            padding: 0.25rem 0.5rem;
+            background: rgba(45, 212, 168, 0.15);
+            color: var(--emerald);
+            font-size: 0.7rem;
+            border-radius: 4px;
+        }
+
+        .difficulty.hard {
+            background: rgba(255, 107, 107, 0.15);
+            color: var(--coral);
+        }
+
+        .difficulty.medium {
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--gold);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 6rem 4rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--silver);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, var(--navy) 0%, rgba(19, 27, 46, 0.5) 100%);
+            border: 1px solid rgba(61, 79, 111, 0.2);
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 168, 83, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.2) 0%, rgba(212, 168, 83, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-description {
+            color: var(--silver);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Practice Section */
+        .practice-section {
+            background: var(--navy);
+        }
+
+        .practice-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .practice-tab {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--steel);
+            color: var(--silver);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .practice-tab:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .practice-tab.active {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-color: var(--gold);
+            color: var(--midnight);
+        }
+
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .question-card {
+            background: var(--midnight);
+            border: 1px solid rgba(61, 79, 111, 0.2);
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .question-card:hover {
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .question-type {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .question-text {
+            font-weight: 500;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .question-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(61, 79, 111, 0.2);
+        }
+
+        .question-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--silver);
+        }
+
+        .question-action {
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--navy);
+            border: 1px solid rgba(61, 79, 111, 0.3);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(145deg, var(--slate) 0%, var(--navy) 100%);
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--midnight);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-tagline {
+            color: var(--silver);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-amount {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-currency {
+            font-size: 1.25rem;
+            color: var(--silver);
+        }
+
+        .pricing-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+
+        .pricing-period {
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+
+        .pricing-billing {
+            color: var(--silver);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(61, 79, 111, 0.3);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            font-size: 0.95rem;
+            color: var(--silver);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--emerald);
+            font-weight: 600;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--navy);
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 2rem;
+            animation: scroll 40s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .testimonial-card {
+            flex-shrink: 0;
+            width: 400px;
+            background: var(--midnight);
+            border: 1px solid rgba(61, 79, 111, 0.2);
+            padding: 2rem;
+        }
+
+        .testimonial-rating {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            letter-spacing: 0.2em;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--silver);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--midnight);
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-role {
+            font-size: 0.85rem;
+            color: var(--silver);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 4rem;
+            background: 
+                radial-gradient(ellipse 60% 40% at 50% 100%, rgba(212, 168, 83, 0.15) 0%, transparent 50%),
+                var(--midnight);
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            color: var(--silver);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            padding: 4rem;
+            border-top: 1px solid rgba(61, 79, 111, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--silver);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--ivory);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(61, 79, 111, 0.2);
+            display: flex;
+            justify-content: space-between;
+            color: var(--silver);
+            font-size: 0.85rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 15, 28, 0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--navy);
+            border: 1px solid rgba(61, 79, 111, 0.3);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(61, 79, 111, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--silver);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--ivory);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .answer-section {
+            margin-bottom: 2rem;
+        }
+
+        .answer-label {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .answer-content {
+            color: var(--silver);
+            line-height: 1.8;
+        }
+
+        .answer-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .answer-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .key-point {
+            background: rgba(212, 168, 83, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-point-title {
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-visual {
+                display: none;
+            }
+            
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .features-grid,
+            .pricing-grid,
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon"></div>
+            Apex Prep
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#practice">Practice</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+        <div class="nav-cta">
+            <button class="btn-ghost">Sign In</button>
+            <button class="btn-primary">Start Free Trial</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🎯</span>
+                <span>Trusted by 15,000+ candidates at top banks</span>
+            </div>
+            <h1>Master Your <span>Investment Banking</span> Interviews</h1>
+            <p class="hero-description">
+                Comprehensive preparation for technical questions, case studies, and behavioral interviews. Practice with real questions from Goldman Sachs, JP Morgan, Morgan Stanley, and more.
+            </p>
+            <div class="hero-cta">
+                <button class="btn-primary btn-large">Start Practicing Free</button>
+                <button class="btn-ghost btn-large">View Sample Questions</button>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">2,500+</span>
+                    <span class="stat-label">Interview Questions</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">89%</span>
+                    <span class="stat-label">Offer Success Rate</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Elite Bank Partners</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="floating-card card-1">
+                <div class="card-category">Technical</div>
+                <div class="card-title">Walk me through a DCF analysis</div>
+                <div class="card-meta">
+                    <span class="difficulty">Fundamental</span>
+                    <span>Goldman Sachs</span>
+                </div>
+            </div>
+            <div class="floating-card card-2">
+                <div class="card-category">M&A</div>
+                <div class="card-title">What drives synergies in a merger?</div>
+                <div class="card-meta">
+                    <span class="difficulty medium">Intermediate</span>
+                    <span>Morgan Stanley</span>
+                </div>
+            </div>
+            <div class="floating-card card-3">
+                <div class="card-category">LBO</div>
+                <div class="card-title">Build a paper LBO in 5 minutes</div>
+                <div class="card-meta">
+                    <span class="difficulty hard">Advanced</span>
+                    <span>Blackstone</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <div class="section-label">Why Apex Prep</div>
+            <h2 class="section-title">Everything You Need to Land Your Dream Role</h2>
+            <p class="section-description">
+                Built by former bankers from Goldman Sachs, JP Morgan, and Evercore who know exactly what interviewers are looking for.
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Technical Mastery</h3>
+                <p class="feature-description">
+                    Deep dive into DCF, LBO, M&A, and valuation methodologies with step-by-step explanations and interactive models.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Bank-Specific Prep</h3>
+                <p class="feature-description">
+                    Curated question banks for each bulge bracket, elite boutique, and middle market firm with insider tips.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎥</div>
+                <h3 class="feature-title">Mock Interviews</h3>
+                <p class="feature-description">
+                    Practice with AI-powered mock interviews that simulate real superday experiences with detailed feedback.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Financial Modeling</h3>
+                <p class="feature-description">
+                    Build real models in Excel with our guided courses covering 3-statement, DCF, LBO, and M&A modeling.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">Behavioral Coaching</h3>
+                <p class="feature-description">
+                    Craft compelling stories for "walk me through your resume" and behavioral questions using proven frameworks.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Industry Knowledge</h3>
+                <p class="feature-description">
+                    Stay current with market trends, recent deals, and sector-specific knowledge that interviewers love to test.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Questions Section -->
+    <section class="section practice-section" id="practice">
+        <div class="section-header">
+            <div class="section-label">Question Bank</div>
+            <h2 class="section-title">Practice Real Interview Questions</h2>
+            <p class="section-description">
+                Sourced from actual interviews at top investment banks and PE firms.
+            </p>
+        </div>
+        
+        <div class="practice-tabs">
+            <button class="practice-tab active" data-category="technical">Technical</button>
+            <button class="practice-tab" data-category="behavioral">Behavioral</button>
+            <button class="practice-tab" data-category="manda">M&A</button>
+            <button class="practice-tab" data-category="lbo">LBO</button>
+            <button class="practice-tab" data-category="valuation">Valuation</button>
+            <button class="practice-tab" data-category="brain">Brainteasers</button>
+        </div>
+        
+        <div class="questions-grid" id="questionsGrid">
+            <!-- Questions will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="section-header">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Invest in Your Future</h2>
+            <p class="section-description">
+                Choose the plan that fits your recruiting timeline.
+            </p>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-name">Starter</div>
+                <p class="pricing-tagline">For early exploration</p>
+                <div class="pricing-amount">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-value">0</span>
+                </div>
+                <p class="pricing-billing">Free forever</p>
+                <ul class="pricing-features">
+                    <li>50 practice questions</li>
+                    <li>Basic technical guides</li>
+                    <li>Community access</li>
+                    <li>Weekly market digest</li>
+                </ul>
+                <button class="btn-ghost pricing-btn">Get Started</button>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="pricing-name">Premium</div>
+                <p class="pricing-tagline">For serious candidates</p>
+                <div class="pricing-amount">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-value">49</span>
+                    <span class="pricing-period">/mo</span>
+                </div>
+                <p class="pricing-billing">Billed monthly, cancel anytime</p>
+                <ul class="pricing-features">
+                    <li>2,500+ interview questions</li>
+                    <li>AI mock interview sessions</li>
+                    <li>Full modeling courses</li>
+                    <li>Bank-specific question sets</li>
+                    <li>Video explanations</li>
+                    <li>Priority support</li>
+                </ul>
+                <button class="btn-primary pricing-btn">Start 7-Day Free Trial</button>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-name">Enterprise</div>
+                <p class="pricing-tagline">For clubs & universities</p>
+                <div class="pricing-amount">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-value">299</span>
+                    <span class="pricing-period">/mo</span>
+                </div>
+                <p class="pricing-billing">Per organization, billed annually</p>
+                <ul class="pricing-features">
+                    <li>Everything in Premium</li>
+                    <li>Unlimited team members</li>
+                    <li>Custom question sets</li>
+                    <li>Progress analytics dashboard</li>
+                    <li>Dedicated account manager</li>
+                    <li>On-campus workshops</li>
+                </ul>
+                <button class="btn-ghost pricing-btn">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="section-header">
+            <div class="section-label">Success Stories</div>
+            <h2 class="section-title">From Prep to Offer</h2>
+        </div>
+        
+        <div class="testimonial-track">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"The mock interviews were incredibly realistic. I walked into my Goldman superday feeling like I'd already done it 10 times. Got the offer!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <div class="author-name">James Chen</div>
+                        <div class="author-role">Analyst, Goldman Sachs</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"The LBO section alone was worth it. The paper LBO walkthrough helped me crush the modeling portion of my interviews."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SK</div>
+                    <div class="author-info">
+                        <div class="author-name">Sarah Kim</div>
+                        <div class="author-role">Associate, Blackstone</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Coming from a non-target, I needed every edge I could get. Apex Prep leveled the playing field completely."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div class="author-info">
+                        <div class="author-name">Marcus Rodriguez</div>
+                        <div class="author-role">Analyst, JP Morgan</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"The bank-specific questions were spot on. They asked me almost word-for-word what I'd practiced on the platform."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">EW</div>
+                    <div class="author-info">
+                        <div class="author-name">Emily Wang</div>
+                        <div class="author-role">Analyst, Morgan Stanley</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Used Apex for my PE recruiting and landed at a megafund. The technical depth is unmatched."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DT</div>
+                    <div class="author-info">
+                        <div class="author-name">David Thompson</div>
+                        <div class="author-role">Associate, KKR</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Duplicate for infinite scroll -->
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"The mock interviews were incredibly realistic. I walked into my Goldman superday feeling like I'd already done it 10 times. Got the offer!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <div class="author-name">James Chen</div>
+                        <div class="author-role">Analyst, Goldman Sachs</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"The LBO section alone was worth it. The paper LBO walkthrough helped me crush the modeling portion of my interviews."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SK</div>
+                    <div class="author-info">
+                        <div class="author-name">Sarah Kim</div>
+                        <div class="author-role">Associate, Blackstone</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Coming from a non-target, I needed every edge I could get. Apex Prep leveled the playing field completely."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div class="author-info">
+                        <div class="author-name">Marcus Rodriguez</div>
+                        <div class="author-role">Analyst, JP Morgan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title">Ready to Land Your Dream Offer?</h2>
+        <p class="cta-description">
+            Join thousands of candidates who've used Apex Prep to break into investment banking.
+        </p>
+        <button class="btn-primary btn-large">Start Your Free Trial Today</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon"></div>
+                    Apex Prep
+                </a>
+                <p>The most comprehensive investment banking interview prep platform. Built by bankers, for future bankers.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Question Bank</a></li>
+                    <li><a href="#">Mock Interviews</a></li>
+                    <li><a href="#">Modeling Courses</a></li>
+                    <li><a href="#">Study Guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Interview Guide</a></li>
+                    <li><a href="#">Salary Database</a></li>
+                    <li><a href="#">Bank Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Apex Prep. All rights reserved.</p>
+            <p>Made with dedication in New York City</p>
+        </div>
+    </footer>
+
+    <!-- Question Modal -->
+    <div class="modal-overlay" id="questionModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <div class="question-type" id="modalCategory">Technical</div>
+                    <h3 id="modalQuestion" style="font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem;"></h3>
+                </div>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Answer content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Question data
+        const questions = {
+            technical: [
+                {
+                    question: "Walk me through a DCF analysis.",
+                    bank: "Goldman Sachs",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>A DCF, or Discounted Cash Flow analysis, is an intrinsic valuation method that values a company based on its expected future cash flows, discounted back to present value.</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">The 5 Key Steps</div>
+                                <p>Project FCF → Calculate Terminal Value → Discount to Present → Sum Values → Sensitivity Analysis</p>
+                            </div>
+                            
+                            <p><strong>Step 1: Project Free Cash Flows (typically 5-10 years)</strong></p>
+                            <p>Start with revenue projections, then work down to EBIT, adjust for taxes, add back D&A, subtract CapEx and changes in working capital to arrive at Unlevered Free Cash Flow.</p>
+                            
+                            <p><strong>Step 2: Calculate Terminal Value</strong></p>
+                            <p>Use either the Gordon Growth Method (FCF × (1 + g)) / (WACC - g) or Exit Multiple Method (EBITDA × Multiple).</p>
+                            
+                            <p><strong>Step 3: Calculate WACC</strong></p>
+                            <p>WACC = (E/V × Re) + (D/V × Rd × (1-T)), where Re is cost of equity (from CAPM) and Rd is cost of debt.</p>
+                            
+                            <p><strong>Step 4: Discount Everything to Present</strong></p>
+                            <p>Discount each year's FCF and terminal value using the formula: PV = FV / (1 + WACC)^n</p>
+                            
+                            <p><strong>Step 5: Sum to Get Enterprise Value</strong></p>
+                            <p>Sum all present values, then subtract net debt to get Equity Value, divide by shares for price per share.</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "What's the difference between Enterprise Value and Equity Value?",
+                    bank: "Morgan Stanley",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <div class="key-point">
+                                <div class="key-point-title">Key Distinction</div>
+                                <p>Enterprise Value represents the value to ALL investors (debt + equity). Equity Value represents value to SHAREHOLDERS only.</p>
+                            </div>
+                            
+                            <p><strong>Enterprise Value Formula:</strong></p>
+                            <p>EV = Equity Value + Debt + Preferred Stock + Minority Interest - Cash</p>
+                            
+                            <p><strong>Why subtract cash?</strong></p>
+                            <p>Because an acquirer effectively gets the cash back—it reduces the net cost of the acquisition.</p>
+                            
+                            <p><strong>Matching Principle:</strong></p>
+                            <p>EV metrics (EV/EBITDA, EV/Revenue) pair with unlevered metrics. Equity metrics (P/E, P/B) pair with levered metrics that belong to shareholders.</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "How do the three financial statements link together?",
+                    bank: "JP Morgan",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>The three statements—Income Statement, Balance Sheet, and Cash Flow Statement—are interconnected through several key links:</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Primary Links</div>
+                                <p>Net Income flows down • D&A adds back • Working capital adjusts • CapEx invests • Financing raises/repays • Cash reconciles to BS</p>
+                            </div>
+                            
+                            <p><strong>Income Statement → Cash Flow Statement:</strong></p>
+                            <p>Net Income from the IS is the starting point of the Cash Flow Statement's operating section.</p>
+                            
+                            <p><strong>Cash Flow Statement → Balance Sheet:</strong></p>
+                            <p>The ending cash balance from the CFS flows into Cash on the Balance Sheet. D&A reduces PP&E, CapEx increases it.</p>
+                            
+                            <p><strong>Balance Sheet → Income Statement:</strong></p>
+                            <p>Interest expense on debt (BS liability) flows to IS. Retained Earnings on BS increases by Net Income less Dividends.</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "If I buy a piece of equipment, walk me through the impact on all three statements.",
+                    bank: "Evercore",
+                    difficulty: "Intermediate",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>Let's say you buy $100 of equipment with cash:</p>
+                            
+                            <p><strong>Cash Flow Statement (Year 1):</strong></p>
+                            <p>CapEx of $100 in the investing section reduces cash by $100.</p>
+                            
+                            <p><strong>Balance Sheet (Year 1):</strong></p>
+                            <p>Cash decreases by $100. PP&E increases by $100. No net change in assets.</p>
+                            
+                            <p><strong>Income Statement (Years 1+):</strong></p>
+                            <p>Assuming 5-year straight-line depreciation, D&A expense of $20/year reduces pre-tax income by $20 and Net Income by $20 × (1 - Tax Rate).</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Ongoing Impact</div>
+                                <p>Each year: IS shows $20 D&A expense → CFS adds back $20 D&A → BS shows $20 reduction in PP&E and corresponding reduction in Retained Earnings (net of tax shield)</p>
+                            </div>
+                        </div>
+                    </div>`
+                }
+            ],
+            behavioral: [
+                {
+                    question: "Walk me through your resume.",
+                    bank: "All Banks",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <div class="key-point">
+                                <div class="key-point-title">The 3-Part Framework</div>
+                                <p>Past (background) → Present (current focus) → Future (why IB, why this bank)</p>
+                            </div>
+                            
+                            <p><strong>Keep it to 2 minutes.</strong> This is your chance to control the narrative and highlight your most relevant experiences.</p>
+                            
+                            <p><strong>Structure:</strong></p>
+                            <ul>
+                                <li><strong>Past:</strong> Brief background - where you're from, education, initial career direction</li>
+                                <li><strong>Present:</strong> Recent experiences that demonstrate relevant skills (finance internships, leadership, analytical projects)</li>
+                                <li><strong>Future:</strong> Why investment banking, why this specific group/bank, what you hope to accomplish</li>
+                            </ul>
+                            
+                            <p><strong>Pro Tips:</strong></p>
+                            <ul>
+                                <li>Connect experiences with a logical thread</li>
+                                <li>Quantify achievements where possible</li>
+                                <li>End with genuine enthusiasm for the role</li>
+                                <li>Practice until it sounds natural, not rehearsed</li>
+                            </ul>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "Why investment banking?",
+                    bank: "All Banks",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>Your answer should combine personal experiences with genuine reasons. Avoid clichés like "I love working with numbers."</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Strong Pillars</div>
+                                <p>Transaction experience • Steep learning curve • Exposure to senior executives • Work on meaningful deals • Team-oriented culture</p>
+                            </div>
+                            
+                            <p><strong>Sample Framework:</strong></p>
+                            <ul>
+                                <li>Specific experience that sparked your interest (internship, project, course)</li>
+                                <li>What you learned about yourself and your interests</li>
+                                <li>Why IB specifically fulfills those interests better than alternatives</li>
+                                <li>What you hope to gain and contribute</li>
+                            </ul>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "Tell me about a time you worked on a team with a difficult member.",
+                    bank: "Bank of America",
+                    difficulty: "Intermediate",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <div class="key-point">
+                                <div class="key-point-title">STAR Method</div>
+                                <p>Situation → Task → Action → Result</p>
+                            </div>
+                            
+                            <p>Use a real example. Interviewers can tell when you're making things up.</p>
+                            
+                            <p><strong>Key Elements to Include:</strong></p>
+                            <ul>
+                                <li>Brief context (what was the project, what was at stake)</li>
+                                <li>The specific challenge with the team member (without being negative)</li>
+                                <li>Your actions to address it (communication, compromise, escalation if needed)</li>
+                                <li>Positive outcome and what you learned</li>
+                            </ul>
+                            
+                            <p><strong>What They're Assessing:</strong></p>
+                            <p>Emotional intelligence, conflict resolution, maturity, ability to work in high-pressure team environments.</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "What's your greatest weakness?",
+                    bank: "Citi",
+                    difficulty: "Intermediate",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>Pick a real weakness that's not a dealbreaker for IB, and show self-awareness and improvement.</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Avoid</div>
+                                <p>"I'm a perfectionist" or "I work too hard" — interviewers see through these</p>
+                            </div>
+                            
+                            <p><strong>Good Structure:</strong></p>
+                            <ul>
+                                <li>Name the weakness honestly</li>
+                                <li>Give a brief example of when it was a problem</li>
+                                <li>Explain specific steps you've taken to improve</li>
+                                <li>Show progress you've made</li>
+                            </ul>
+                            
+                            <p><strong>Acceptable Weaknesses:</strong></p>
+                            <p>Public speaking anxiety (with improvement story), delegation challenges, initial discomfort with ambiguity, etc.</p>
+                        </div>
+                    </div>`
+                }
+            ],
+            manda: [
+                {
+                    question: "Walk me through an accretion/dilution analysis.",
+                    bank: "Lazard",
+                    difficulty: "Intermediate",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>Accretion/dilution analysis determines whether a merger will increase or decrease the acquirer's EPS.</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Core Concept</div>
+                                <p>If Pro Forma EPS > Acquirer's Standalone EPS → Accretive<br>If Pro Forma EPS < Acquirer's Standalone EPS → Dilutive</p>
+                            </div>
+                            
+                            <p><strong>Steps:</strong></p>
+                            <ul>
+                                <li>Calculate combined Net Income (both companies + synergies - transaction costs)</li>
+                                <li>Adjust for financing: interest expense on new debt, foregone interest on cash used</li>
+                                <li>Calculate new share count if stock is used</li>
+                                <li>Pro Forma EPS = Combined Net Income / New Share Count</li>
+                                <li>Compare to acquirer's standalone EPS</li>
+                            </ul>
+                            
+                            <p><strong>Key Drivers:</strong></p>
+                            <p>The deal is more likely accretive when: target has higher P/E (if using stock), significant synergies exist, or deal is financed with cheap debt.</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "What are the main synergies in a merger?",
+                    bank: "Morgan Stanley",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <div class="key-point">
+                                <div class="key-point-title">Two Main Types</div>
+                                <p>Revenue Synergies (harder to achieve) + Cost Synergies (more reliable)</p>
+                            </div>
+                            
+                            <p><strong>Cost Synergies:</strong></p>
+                            <ul>
+                                <li>Headcount reduction (overlapping roles)</li>
+                                <li>Facilities consolidation</li>
+                                <li>Procurement savings (volume discounts)</li>
+                                <li>Technology system consolidation</li>
+                                <li>Elimination of duplicate public company costs</li>
+                            </ul>
+                            
+                            <p><strong>Revenue Synergies:</strong></p>
+                            <ul>
+                                <li>Cross-selling opportunities</li>
+                                <li>Access to new markets/geographies</li>
+                                <li>Combined product offerings</li>
+                                <li>Pricing power from reduced competition</li>
+                            </ul>
+                            
+                            <p><strong>Note:</strong> Buyers typically discount revenue synergies heavily (50%+) due to execution risk, while cost synergies are more credible.</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "Why would a company use stock vs. cash in an acquisition?",
+                    bank: "Goldman Sachs",
+                    difficulty: "Intermediate",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p><strong>Reasons to Use Stock:</strong></p>
+                            <ul>
+                                <li>Stock is "overvalued" - paying with expensive currency</li>
+                                <li>Preserve cash for operations or other uses</li>
+                                <li>Share risk with target shareholders</li>
+                                <li>Target shareholders want upside in combined entity</li>
+                                <li>Tax-deferred transaction for target shareholders</li>
+                            </ul>
+                            
+                            <p><strong>Reasons to Use Cash:</strong></p>
+                            <ul>
+                                <li>Avoid dilution to existing shareholders</li>
+                                <li>Stock is "undervalued"</li>
+                                <li>Signal confidence in the deal</li>
+                                <li>Clean break - target shareholders exit completely</li>
+                                <li>Simpler transaction structure</li>
+                            </ul>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">In Practice</div>
+                                <p>Most large deals use a mix of cash and stock to balance these considerations.</p>
+                            </div>
+                        </div>
+                    </div>`
+                }
+            ],
+            lbo: [
+                {
+                    question: "Walk me through a basic LBO model.",
+                    bank: "Blackstone",
+                    difficulty: "Intermediate",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>An LBO (Leveraged Buyout) is when a financial sponsor acquires a company using significant debt, operates it for 3-7 years, then exits for a profit.</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">LBO Value Creation</div>
+                                <p>Debt paydown + EBITDA growth + Multiple expansion = Returns</p>
+                            </div>
+                            
+                            <p><strong>Model Steps:</strong></p>
+                            <ul>
+                                <li><strong>Sources & Uses:</strong> Purchase price + fees = Debt + Equity</li>
+                                <li><strong>Operating Projections:</strong> Project revenue, EBITDA, FCF over hold period</li>
+                                <li><strong>Debt Schedule:</strong> Model mandatory and optional debt paydown</li>
+                                <li><strong>Exit:</strong> Apply exit multiple to terminal EBITDA for Enterprise Value</li>
+                                <li><strong>Returns:</strong> Calculate equity value at exit, compute IRR and MoIC</li>
+                            </ul>
+                            
+                            <p><strong>Target Returns:</strong></p>
+                            <p>PE firms typically target 20-25% IRR and 2.0-3.0x MoIC (Multiple of Invested Capital).</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "What makes a good LBO candidate?",
+                    bank: "KKR",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <div class="key-point">
+                                <div class="key-point-title">Key Characteristics</div>
+                                <p>Stable cash flows • Low CapEx needs • Strong market position • Operational improvement opportunities • Clear exit path</p>
+                            </div>
+                            
+                            <p><strong>Financial Characteristics:</strong></p>
+                            <ul>
+                                <li>Stable, predictable cash flows to service debt</li>
+                                <li>Low working capital and CapEx requirements</li>
+                                <li>Clean balance sheet (low existing debt)</li>
+                                <li>Strong EBITDA margins with room for improvement</li>
+                            </ul>
+                            
+                            <p><strong>Business Characteristics:</strong></p>
+                            <ul>
+                                <li>Defensible market position / competitive moat</li>
+                                <li>Non-cyclical or recession-resistant industry</li>
+                                <li>Fragmented industry (potential for add-ons)</li>
+                                <li>Strong management team or clear improvement opportunity</li>
+                                <li>Tangible assets that can serve as collateral</li>
+                            </ul>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "Do a paper LBO: $500M purchase, 5x EBITDA, $100M EBITDA, 50% debt, exit at 5x in 5 years, 10% EBITDA growth.",
+                    bank: "Apollo",
+                    difficulty: "Advanced",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p><strong>Given:</strong> $500M purchase, $100M EBITDA (5x), 50% debt ($250M), 50% equity ($250M)</p>
+                            
+                            <p><strong>Year 5 EBITDA:</strong></p>
+                            <p>$100M × 1.10^5 = $161M</p>
+                            
+                            <p><strong>Exit Value:</strong></p>
+                            <p>$161M × 5x = $805M Enterprise Value</p>
+                            
+                            <p><strong>Debt Paydown (simplified):</strong></p>
+                            <p>Assume FCF conversion of ~50% of EBITDA growth → ~$30M annual paydown average → $150M paid down → $100M remaining debt</p>
+                            
+                            <p><strong>Equity Value at Exit:</strong></p>
+                            <p>$805M - $100M = $705M</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Returns</div>
+                                <p>MoIC: $705M / $250M = 2.8x<br>IRR: ~23% (Rule of thumb: 3x in 5 years ≈ 25% IRR)</p>
+                            </div>
+                        </div>
+                    </div>`
+                }
+            ],
+            valuation: [
+                {
+                    question: "What are the main valuation methodologies?",
+                    bank: "All Banks",
+                    difficulty: "Fundamental",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <div class="key-point">
+                                <div class="key-point-title">Three Core Methods</div>
+                                <p>Comparable Companies (Trading Comps) • Precedent Transactions • DCF Analysis</p>
+                            </div>
+                            
+                            <p><strong>1. Comparable Companies Analysis:</strong></p>
+                            <p>Value based on how similar public companies are trading. Uses multiples like EV/EBITDA, EV/Revenue, P/E.</p>
+                            
+                            <p><strong>2. Precedent Transactions:</strong></p>
+                            <p>Value based on what acquirers have paid for similar companies. Includes control premium (typically 20-40%).</p>
+                            
+                            <p><strong>3. DCF Analysis:</strong></p>
+                            <p>Intrinsic value based on present value of future cash flows. Most theoretically sound but depends heavily on assumptions.</p>
+                            
+                            <p><strong>Other Methods:</strong></p>
+                            <p>LBO Analysis (what a PE firm could pay), Sum-of-the-Parts, Liquidation Value, Dividend Discount Model.</p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "When would you use EV/Revenue vs. EV/EBITDA?",
+                    bank: "Jefferies",
+                    difficulty: "Intermediate",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p><strong>Use EV/Revenue when:</strong></p>
+                            <ul>
+                                <li>Company is unprofitable or has negative EBITDA</li>
+                                <li>Early-stage / high-growth companies</li>
+                                <li>Highly variable margins across comparables</li>
+                                <li>Industries where revenue is the key value driver (tech, biotech)</li>
+                            </ul>
+                            
+                            <p><strong>Use EV/EBITDA when:</strong></p>
+                            <ul>
+                                <li>Companies are mature and profitable</li>
+                                <li>Comparing companies with similar margins</li>
+                                <li>Industries where cash flow generation matters most</li>
+                                <li>Need a closer proxy to cash flow than revenue</li>
+                            </ul>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Rule of Thumb</div>
+                                <p>EV/EBITDA is preferred when possible because it's closer to cash flow. EV/Revenue is a fallback when EBITDA isn't meaningful.</p>
+                            </div>
+                        </div>
+                    </div>`
+                }
+            ],
+            brain: [
+                {
+                    question: "How many golf balls fit in a school bus?",
+                    bank: "Jane Street",
+                    difficulty: "Brainteaser",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <p>The key is showing structured thinking, not getting the exact answer.</p>
+                            
+                            <div class="key-point">
+                                <div class="key-point-title">Framework</div>
+                                <p>Estimate volumes → Calculate ratio → Adjust for packing efficiency</p>
+                            </div>
+                            
+                            <p><strong>School Bus Volume:</strong></p>
+                            <p>Length: ~35 feet, Width: ~8 feet, Height: ~6 feet<br>
+                            Volume: 35 × 8 × 6 = 1,680 cubic feet<br>
+                            Less ~20% for seats, etc. → ~1,350 usable cubic feet</p>
+                            
+                            <p><strong>Golf Ball Volume:</strong></p>
+                            <p>Diameter: ~1.7 inches<br>
+                            Volume: 4/3 × π × (0.85)³ ≈ 2.5 cubic inches</p>
+                            
+                            <p><strong>Calculation:</strong></p>
+                            <p>1,350 cubic feet × 1,728 cubic inches/cubic foot = 2.33M cubic inches<br>
+                            2.33M / 2.5 = 930,000 golf balls<br>
+                            Adjust for ~65% packing efficiency → <strong>~500,000-600,000 golf balls</strong></p>
+                        </div>
+                    </div>`
+                },
+                {
+                    question: "You have 8 balls. One is heavier. You have a balance scale. How do you find the heavy one in 2 weighings?",
+                    bank: "Citadel",
+                    difficulty: "Brainteaser",
+                    answer: `<div class="answer-section">
+                        <div class="answer-label">Framework Answer</div>
+                        <div class="answer-content">
+                            <div class="key-point">
+                                <div class="key-point-title">Key Insight</div>
+                                <p>Divide into three groups, not two. Each weighing can have three outcomes.</p>
+                            </div>
+                            
+                            <p><strong>Weighing 1:</strong></p>
+                            <p>Divide balls into groups of 3, 3, and 2.<br>
+                            Weigh the two groups of 3 against each other.</p>
+                            
+                            <p><strong>Outcomes:</strong></p>
+                            <ul>
+                                <li>If one side is heavier → Heavy ball is in that group of 3</li>
+                                <li>If balanced → Heavy ball is in the group of 2</li>
+                            </ul>
+                            
+                            <p><strong>Weighing 2:</strong></p>
+                            <ul>
+                                <li>If from group of 3: Weigh any 2 balls against each other. Heavier one wins, or if balanced, it's the third.</li>
+                                <li>If from group of 2: Weigh them against each other. Heavier one is the answer.</li>
+                            </ul>
+                        </div>
+                    </div>`
+                }
+            ]
+        };
+
+        // Current category
+        let currentCategory = 'technical';
+
+        // Render questions
+        function renderQuestions(category) {
+            const grid = document.getElementById('questionsGrid');
+            const categoryQuestions = questions[category] || [];
+            
+            grid.innerHTML = categoryQuestions.map((q, index) => `
+                <div class="question-card" onclick="openModal('${category}', ${index})">
+                    <div class="question-header">
+                        <div class="question-type">${category.toUpperCase()}</div>
+                        <span class="difficulty ${q.difficulty.toLowerCase()}">${q.difficulty}</span>
+                    </div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="question-footer">
+                        <div class="question-meta">
+                            <span>${q.bank}</span>
+                        </div>
+                        <div class="question-action">
+                            View Answer →
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Tab switching
+        document.querySelectorAll('.practice-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.practice-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentCategory = tab.dataset.category;
+                renderQuestions(currentCategory);
+            });
+        });
+
+        // Modal functions
+        function openModal(category, index) {
+            const q = questions[category][index];
+            document.getElementById('modalCategory').textContent = category.toUpperCase();
+            document.getElementById('modalQuestion').textContent = q.question;
+            document.getElementById('modalBody').innerHTML = q.answer;
+            document.getElementById('questionModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('questionModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('questionModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('questionModal')) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Initialize
+        renderQuestions('technical');
+    </script>
+</body>
+</html>
